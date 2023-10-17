@@ -79,6 +79,8 @@ public class AxisTickLabels implements PaintListener {
 	private Map<Integer, Integer[]> possibleTickSteps;
 	/** the font */
 	private Font font;
+	/** forced step size (overrides standard step size)*/
+	private Integer forcedStepSize;
 
 	/**
 	 * Constructor.
@@ -122,6 +124,7 @@ public class AxisTickLabels implements PaintListener {
 		possibleTickSteps.put(Calendar.DATE, dates);
 		possibleTickSteps.put(Calendar.MONTH, months);
 		possibleTickSteps.put(Calendar.YEAR, years);
+		forcedStepSize = null;
 	}
 
 	/**
@@ -587,6 +590,12 @@ public class AxisTickLabels implements PaintListener {
 				}
 			}
 		}
+		
+		// if a forces step size is defined, override the computed step size
+		if (forcedStepSize != null) {
+			gridStep = BigDecimal.valueOf(forcedStepSize);
+		}
+		
 		//
 		return gridStep;
 	}
@@ -848,5 +857,14 @@ public class AxisTickLabels implements PaintListener {
 	public ArrayList<String> getTickLabels() {
 
 		return tickLabels;
+	}
+
+	/**
+	 * Sets the forced step size
+	 * 
+	 * @param stepSize the step size
+	 */
+	public void setForcedStepSize(Integer stepSize) {
+		this.forcedStepSize = stepSize;
 	}
 }

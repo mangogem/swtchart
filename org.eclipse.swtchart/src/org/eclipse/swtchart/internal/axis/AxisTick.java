@@ -217,6 +217,12 @@ public class AxisTick implements IAxisTick {
 		return values;
 	}
 
+	
+	@Override
+	public void setForcedStepSize(Integer stepSize) {
+		this.axisTickLabels.setForcedStepSize(stepSize);
+	}
+	
 	/**
 	 * Updates the tick around per 64 pixel.
 	 *
