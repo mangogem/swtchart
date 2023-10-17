@@ -232,6 +232,12 @@ public class AxisTick implements IAxisTick {
 		}
 	}
 
+	@Override
+	public void setForcedStepSize(Integer stepSize) {
+
+		axisTickLabels.setForcedStepSize(stepSize);
+	}
+
 	/**
 	 * Updates the tick layout.
 	 */

@@ -137,4 +137,14 @@ public interface IAxisTick {
 	 * @return the tick label values
 	 */
 	double[] getTickLabelValues();
+
+	/**
+	 * Sets a forced step size for this axis.
+	 * <p>
+	 * Setting a non-null value circumvents the interval computation of the
+	 * axis step size.
+	 *
+	 * @param stepSize the step size to set, or null to restore the computed one.
+	 */
+	void setForcedStepSize(Integer stepSize);
 }
