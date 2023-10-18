@@ -13,8 +13,10 @@
 
 name: Continuous Integration
 on:
-  pull_request:
-
+    push:
+        branches:    
+            - master
+            - develop
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -22,13 +24,21 @@ jobs:
     steps:
     - name: Checkout SWTChart
       uses: actions/checkout@v3
+    
     - name: Set up JDK 17
       uses: actions/setup-java@v3
       with:
         distribution: 'temurin'
         java-version: '17'
         cache: 'maven'
+    
     - name: Build with Maven
       uses: coactions/setup-xvfb@v1
       with:
-        run: mvn -f org.eclipse.swtchart.cbi/pom.xml -T 1C verify --batch-mode --no-transfer-progress
+        run: mvn -f org.eclipse.swtchart.cbi/pom.xml -T 1C clean verify --batch-mode --no-transfer-progress
+
+    - name: Deploy update-site to the repository Github Page
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./org.eclipse.swtchart.updatesite/target/repository
