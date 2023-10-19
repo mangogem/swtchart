@@ -88,7 +88,8 @@ public class ImageArrayTransfer extends ByteArrayTransfer {
 	protected void javaToNative(Object object, TransferData transferData) {
 
 		if(isSupportedType(transferData)) {
-			if(object instanceof ImageData imageData) {
+			if(object instanceof ImageData) {
+				ImageData imageData = (ImageData)object;
 				/*
 				 * Image
 				 */

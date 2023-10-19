@@ -43,8 +43,10 @@ public class CustomSeriesComparator extends ViewerComparator {
 	public int compare(Viewer viewer, Object e1, Object e2) {
 
 		int sortOrder = 0;
-		if(e1 instanceof ICustomSeries customSeries1 && e2 instanceof ICustomSeries customSeries2) {
+		if(e1 instanceof ICustomSeries && e2 instanceof ICustomSeries) {
 			//
+			ICustomSeries customSeries1 = (ICustomSeries)e1;
+			ICustomSeries customSeries2 = (ICustomSeries)e2;
 			switch(propertyIndex) {
 				case 0:
 					sortOrder = customSeries1.getId().compareTo(customSeries2.getId());

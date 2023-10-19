@@ -44,7 +44,8 @@ public class CustomSeriesLabelProvider extends ColumnLabelProvider implements IT
 	@Override
 	public Image getColumnImage(Object element, int columnIndex) {
 
-		if(element instanceof ICustomSeries customPaintSeries) {
+		if(element instanceof ICustomSeries) {
+			ICustomSeries customPaintSeries = (ICustomSeries)element;
 			if(columnIndex == INDEX_ID) {
 				return ResourceSupport.getImage(ResourceSupport.ICON_SERIES_MARKER);
 			} else if(columnIndex == INDEX_DRAW) {
@@ -60,7 +61,8 @@ public class CustomSeriesLabelProvider extends ColumnLabelProvider implements IT
 	public String getColumnText(Object element, int columnIndex) {
 
 		String text = "";
-		if(element instanceof ICustomSeries customPaintSeries) {
+		if(element instanceof ICustomSeries) {
+			ICustomSeries customPaintSeries = (ICustomSeries)element;
 			switch(columnIndex) {
 				case 0:
 					text = customPaintSeries.getId();

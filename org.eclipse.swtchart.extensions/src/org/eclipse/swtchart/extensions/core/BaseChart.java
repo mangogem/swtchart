@@ -853,28 +853,29 @@ public class BaseChart extends AbstractExtendedChart implements IChartDataCoordi
 		 */
 		if(series instanceof ILineSeries) {
 			ILineSeries<?> lineSeries = (ILineSeries<?>)series;
-			if(seriesSettings instanceof ILineSeriesSettings lineSeriesSettings) {
+			if(seriesSettings instanceof ILineSeriesSettings) {
 				/*
 				 * Line Series
 				 */
-				applyLineSeriesSettings(lineSeries, lineSeriesSettings);
-			} else if(seriesSettings instanceof IScatterSeriesSettings scatterSeriesSettings) {
+				applyLineSeriesSettings(lineSeries, (ILineSeriesSettings)seriesSettings);
+			} else if(seriesSettings instanceof IScatterSeriesSettings) {
 				/*
 				 * Scatter Series
 				 */
-				applyScatterSeriesSettings(lineSeries, scatterSeriesSettings);
+				applyScatterSeriesSettings(lineSeries, (IScatterSeriesSettings)seriesSettings);
 			}
 		} else if(series instanceof IBarSeries) {
 			IBarSeries<?> barSeries = (IBarSeries<?>)series;
-			if(seriesSettings instanceof IBarSeriesSettings barSeriesSettings) {
+			if(seriesSettings instanceof IBarSeriesSettings) {
 				/*
 				 * Bar Series
 				 */
-				applyBarSeriesSettings(barSeries, barSeriesSettings);
+				applyBarSeriesSettings(barSeries, (IBarSeriesSettings)seriesSettings);
 			}
 		} else if(series instanceof ICircularSeries) {
 			ICircularSeries<?> circularSeries = (ICircularSeries<?>)series;
-			if(seriesSettings instanceof ICircularSeriesSettings circularSeriesSettings) {
+			if(seriesSettings instanceof ICircularSeriesSettings) {
+				ICircularSeriesSettings circularSeriesSettings = (ICircularSeriesSettings)seriesSettings;
 				/*
 				 * Pie Series
 				 */
@@ -950,7 +951,8 @@ public class BaseChart extends AbstractExtendedChart implements IChartDataCoordi
 		circularSeries.setBorderStyle(circularSeriesSettings.getBorderStyle().value());
 		//
 		ISeriesSettings seriesSettingsHighlight = circularSeriesSettings.getSeriesSettingsHighlight();
-		if(seriesSettingsHighlight instanceof ICircularSeriesSettings circularSeriesSettingsHighlight) {
+		if(seriesSettingsHighlight instanceof ICircularSeriesSettings) {
+			ICircularSeriesSettings circularSeriesSettingsHighlight = (ICircularSeriesSettings)seriesSettingsHighlight;
 			circularSeries.setSliceColorHighlight(circularSeriesSettingsHighlight.getSliceColor());
 			circularSeries.setBorderColorHighlight(circularSeriesSettingsHighlight.getBorderColor());
 			circularSeries.setBorderWidthHighlight(circularSeriesSettingsHighlight.getBorderWidth());

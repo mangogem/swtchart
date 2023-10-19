@@ -66,7 +66,8 @@ public class CustomSeriesEditingSupport extends EditingSupport {
 	protected Object getValue(Object element) {
 
 		Object object = null;
-		if(element instanceof ICustomSeries customSeries) {
+		if(element instanceof ICustomSeries) {
+			ICustomSeries customSeries = (ICustomSeries)element;
 			/*
 			 * Series Settings
 			 */
@@ -85,7 +86,8 @@ public class CustomSeriesEditingSupport extends EditingSupport {
 	@Override
 	protected void setValue(Object element, Object object) {
 
-		if(element instanceof ICustomSeries customSeries) {
+		if(element instanceof ICustomSeries) {
+			ICustomSeries customSeries = (ICustomSeries)element;
 			/*
 			 * Series Settings
 			 */
