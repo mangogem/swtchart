@@ -107,6 +107,7 @@
 		<artifactId>tycho-packaging-plugin</artifactId>
 		<version>${tycho.version}</version>
 		<configuration>
+			<forceContextQualifier>mangogem</forceContextQualifier>
 			<archive>
 				<addMavenDescriptor>false</addMavenDescriptor>
 			</archive>
