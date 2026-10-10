@@ -440,7 +440,7 @@ public class ChartTest extends ChartTestCase {
 
 		showChart();
 		int[] paintCount = {0};
-		chart.addPaintListener(_ -> paintCount[0]++);
+		chart.addPaintListener(unused -> paintCount[0]++);
 		assertEquals(0, paintsOnMouseMove(paintCount), "repainted although no position marker is drawn");
 		chart.getAxisSet().getXAxis(0).setDrawPositionMarker(true);
 		assertTrue(paintsOnMouseMove(paintCount) > 0, "the position marker is not drawn");
@@ -458,8 +458,8 @@ public class ChartTest extends ChartTestCase {
 		showChart();
 		int[] paintCount = {0};
 		IPlotArea plotArea = chart.getPlotArea();
-		plotArea.getControl().addPaintListener(_ -> paintCount[0]++);
-		ICustomPaintListener listener = _ -> {
+		plotArea.getControl().addPaintListener(unused -> paintCount[0]++);
+		ICustomPaintListener listener = unused -> {
 		};
 		waitForPendingPaints(paintCount);
 		plotArea.addCustomPaintListener(listener);

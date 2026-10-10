@@ -60,7 +60,7 @@ public class DemoChartDialog {
 						barSeries.setYSeries(ySeries);
 						chart.getAxisSet().adjustRange();
 
-						parent.addDisposeListener(_ -> {
+						parent.addDisposeListener(unused -> {
 
 							if(chart != null && !chart.isDisposed()) {
 								System.out.println("Dispose Listener");

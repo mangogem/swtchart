@@ -124,7 +124,7 @@ public class CustomSeriesListUI extends AbstractSeriesListUI {
 		tableColumn.setWidth(width);
 		tableColumn.setResizable(true);
 		tableColumn.setMoveable(true);
-		tableColumn.addListener(SWT.Move, _ -> {
+		tableColumn.addListener(SWT.Move, unused -> {
 
 			String columnOrder = getColumnOrder(getTable());
 			if(preferenceStore != null) {

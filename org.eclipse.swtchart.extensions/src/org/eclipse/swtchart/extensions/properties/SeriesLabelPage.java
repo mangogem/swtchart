@@ -133,11 +133,11 @@ public class SeriesLabelPage extends AbstractSelectorPage {
 
 		colorLabel = createLabelControl(group, Messages.getString(Messages.COLOR));
 		colorButton = createColorButtonControl(group);
-		colorButton.addListener(_ -> colors[selectedIndex] = colorButton.getColorValue());
+		colorButton.addListener(unused -> colors[selectedIndex] = colorButton.getColorValue());
 
 		fontSizeLabel = createLabelControl(group, Messages.getString(Messages.FONT_SIZE));
 		fontSizeSpinner = createSpinnerControl(group, 8, 30);
-		fontSizeSpinner.addModifyListener(_ -> fontSizes[selectedIndex] = fontSizeSpinner.getSelection());
+		fontSizeSpinner.addModifyListener(unused -> fontSizes[selectedIndex] = fontSizeSpinner.getSelection());
 	}
 
 	/**

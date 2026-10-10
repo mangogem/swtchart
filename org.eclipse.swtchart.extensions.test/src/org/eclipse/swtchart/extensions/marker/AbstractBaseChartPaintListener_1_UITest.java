@@ -45,7 +45,7 @@ public class AbstractBaseChartPaintListener_1_UITest {
 		shell.setLayout(new FillLayout());
 		baseChart = new BaseChart(shell, SWT.NONE);
 		shell.open();
-		baseChart.getPlotArea().getControl().addPaintListener(_ -> paintCount[0]++);
+		baseChart.getPlotArea().getControl().addPaintListener(unused -> paintCount[0]++);
 	}
 
 	@AfterEach

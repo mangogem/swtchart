@@ -108,7 +108,7 @@ public class LineSeries_Selection_Part extends Composite {
 
 		lineChart = new LineChart(this, SWT.NONE);
 		lineChart.setLayoutData(new GridData(GridData.FILL_BOTH));
-		lineChart.getBaseChart().addCustomRangeSelectionHandler(_ -> {
+		lineChart.getBaseChart().addCustomRangeSelectionHandler(unused -> {
 
 			BaseChart baseChart = lineChart.getBaseChart();
 			Range rangeX = baseChart.getAxisSet().getXAxis(BaseChart.ID_PRIMARY_X_AXIS).getRange();

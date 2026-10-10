@@ -53,7 +53,7 @@ public class SeriesSet implements ISeriesSet {
 
 		this.chart = chart;
 		seriesMap = new LinkedHashMap<>();
-		chart.addDisposeListener(_ -> dispose());
+		chart.addDisposeListener(unused -> dispose());
 	}
 
 	@SuppressWarnings("rawtypes")
